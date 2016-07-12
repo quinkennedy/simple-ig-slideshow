@@ -147,7 +147,7 @@ function showPost(index){
     else if (post.classList.contains('video')){
       var video = post.getElementsByTagName('video')[0];
       video.loop = true;
-      video.fastSeek(0);
+      video.currentTime = 0;
       video.play();
       //and let it play/loop for at least 9 seconds
       setTimeout(checkVideoEnd.bind(this, video), 9000);
