@@ -137,6 +137,7 @@ function showPost(index){
   var post = document.body.children[index];
   if (post){
     //make the post visible
+    post.classList.remove('hide');
     post.classList.add('visible');
     // if it is an image, change in a set amount of time
     if (post.classList.contains('image')){
@@ -146,6 +147,7 @@ function showPost(index){
     else if (post.classList.contains('video')){
       var video = post.getElementsByTagName('video')[0];
       video.loop = true;
+      video.fastSeek(0);
       video.play();
       //and let it play/loop for at least 9 seconds
       setTimeout(checkVideoEnd.bind(this, video), 9000);
@@ -169,7 +171,6 @@ function checkVideoEnd(video){
 function videoEnded(evt){
   var video = evt.target;
   video.pause();
-  video.fastSeek(0);
   video.removeEventListener('ended', videoEnded);
   switchPosts();
 }
@@ -183,6 +184,7 @@ function hidePost(index){
   if (post){
     //hide the post
     post.classList.remove('visible');
+    post.classList.add('hide');
   }
 }
 
