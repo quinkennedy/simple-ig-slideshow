@@ -48,7 +48,7 @@ var templates = {
  */
 function overrideXHR(proxy){
   var cors_api_host = proxy;
-  var cors_api_url = 'http://' + cors_api_host + '/';
+  var cors_api_url = 'https://' + cors_api_host + '/';
   var slice = [].slice;
   var origin = window.location.protocol + '//' + window.location.host;
   var open = XMLHttpRequest.prototype.open;
